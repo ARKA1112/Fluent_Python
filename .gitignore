@@ -4,3 +4,6 @@ floats.txt
 floats.bin
 floats.bin
 this.txt
+__pycache__/birds.cpython-311.pyc
+.pytype/imports/messages.imports
+.pytype/build.ninja
