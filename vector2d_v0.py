@@ -41,7 +41,19 @@ class Vector2d:
     
     def __complex__(self):
         return complex(self.__x,self.__y)
-    
+
+    def __len__(self):
+        return len(self._components)
+
+    def __getitem__(self, key):
+        if isinstance(key, slice):
+            cls = type(self)
+            return cls(self._components[key])
+        index = operator.index(key)
+        return self._components[index]
+
+
+
 if __name__ == 'main':
     vi = Vector2d(3,4)
     vi
