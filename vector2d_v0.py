@@ -3,7 +3,9 @@ import math
 
 class Vector2d:
     typecode = 'd'
-    __match_args__ = ('x', 'y')
+    __match_args__ = ('x', 'y')  
+    __slots__ = ('__x', '__y')
+
     def __init__(self, x, y):
         self.__x = float(x)
         self.__y = float(y)
@@ -39,3 +41,7 @@ class Vector2d:
     
     def __complex__(self):
         return complex(self.__x,self.__y)
+    
+if __name__ == 'main':
+    vi = Vector2d(3,4)
+    vi
