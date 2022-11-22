@@ -34,3 +34,15 @@ class Vector:
             else:
                 self.__name = __value
         super().__setattr__(__name, __value)
+
+    def __format__(self, fmt_spec='') -> str:
+        if fmt_spec.endswith('h'):
+            fmt_spec = fmt_spec[:-1]
+            coords = itertools.chain([abs(self)],
+                                     self.angles())  
+            outer_fmt = '<{}>'  
+        else:
+            coords = self
+            outer_fmt = '({})'  
+        components = (format(c, fmt_spec) for c in coords)  
+        return outer_fmt.format(', '.join(components))
