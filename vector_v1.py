@@ -92,3 +92,11 @@ class Vector:
     def __eq__(self, __o: object) -> bool:
         if isinstance(self, Vector):
             return (len(self) == len(__o) and all(a==b for a, b in zip(self, __o)))
+
+
+    def __ne__(self, __o: object) -> bool:
+        eq_result = self==__o
+        if eq_result is NotImplemented:
+            return NotImplemented
+        else:
+            return not eq_result
