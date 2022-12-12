@@ -18,3 +18,29 @@ class Sentence:
 
     def __repr__(self) -> str:
         return'Sentence(%s)'% reprlib.repr(self.text) #reprlib.repr is a utility function to generate abbreviated string representaion of data structures that can be very large.
+
+    def __iter__(self):   #makes it a generator function
+        for word in self.words:
+            yield word
+
+
+#Take2
+class SentenceIterator:
+    def __init__(self,words):
+        self.words = words
+        self.index = 0
+
+    def __next__(self):
+        try:
+            word = self.words[self.index]
+        except IndexError:
+            raise StopIteration()
+        self.index += 1
+        return word
+
+    def __iter__(self):
+        return self
+
+
+#Take3
+
